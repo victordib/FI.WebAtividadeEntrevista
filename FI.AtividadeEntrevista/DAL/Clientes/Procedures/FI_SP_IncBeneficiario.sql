@@ -1,0 +1,11 @@
+﻿CREATE PROCEDURE [dbo].[FI_SP_IncBeneficiario]
+	@Nome varchar(50),
+	@CPF varchar(11),
+	@IdCliente int
+AS
+BEGIN
+	IF NOT EXISTS (SELECT TOP(1) * FROM BENEFICIARIOS WHERE CPF = @CPF)
+	BEGIN
+		INSERT INTO BENEFICIARIOS (NOME, CPF, IDCLIENTE) VALUES (@Nome, @CPF, @IdCliente)
+	END
+END
