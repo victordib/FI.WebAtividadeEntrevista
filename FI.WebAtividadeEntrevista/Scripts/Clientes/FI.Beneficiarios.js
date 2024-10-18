@@ -85,6 +85,17 @@ function excluirRow(id) {
     }
 }
 
+function alterarRow(id) {
+    let valor = $("#" + id)[0].childNodes;
+
+    document.getElementById('beneNome').value = valor[1].innerText;
+    document.getElementById('beneCPF').value = valor[0].innerText;
+
+    ModalDialog("Atenção!", "Lembre-se de clicar em Incluir novamente para salvar a alteração!")
+
+    excluirRow(id);
+}
+
 function getBeneficiarios() {
     var beneficiarios = []
 
